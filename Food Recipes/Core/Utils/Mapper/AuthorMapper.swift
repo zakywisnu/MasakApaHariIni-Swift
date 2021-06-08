@@ -22,4 +22,10 @@ final class AuthorMapper {
     ) -> Author {
         return Author(user: authorEntity.user, datePublished: authorEntity.datePublished)
     }
+    
+    static func mapAuthorResponseToDomain(
+        input authorResponse: AuthorResponse
+    ) -> Author{
+        return Author(user: authorResponse.user, datePublished: authorResponse.datePublished)
+    }
 }

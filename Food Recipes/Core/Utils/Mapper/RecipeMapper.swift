@@ -50,6 +50,14 @@ final class RecipeMapper {
         }
     }
     
+    static func mapRecipeByCategoryResponseToDomain(
+        input recipeResponse: [RecipeCategoryResponse]
+    ) -> [RecipeCategoryModel] {
+        return recipeResponse.map{ result in
+            return RecipeCategoryModel(title: result.title , thumb: result.thumb , key: result.key , times: result.times, portion: result.portion, difficulty: result.difficulty)
+        }
+    }
+    
     static func mapRecipeDetailResponseToEntity(
         input recipeResponse: RecipeDetailResponse
     ) -> RecipeDetailEntity {
@@ -85,4 +93,12 @@ final class RecipeMapper {
             step: recipeEntity.step.map{$0}
         )
     }
+    
+    static func mapRecipeDetailResponseToDomain(
+        input detailResponse: RecipeDetailResponse
+    ) -> RecipeDetailModel {
+        let author = AuthorMapper.mapAuthorResponseToDomain(input: detailResponse.author!)
+        return RecipeDetailModel(title: detailResponse.title ?? "", thumb: detailResponse.thumb ?? "", servings: detailResponse.servings ?? "", times: detailResponse.times ?? "", difficulty: detailResponse.difficulty ?? "", authorModel: author , ingredient: detailResponse.ingredient ?? [], step: detailResponse.step ?? [])
+    }
+    
 }

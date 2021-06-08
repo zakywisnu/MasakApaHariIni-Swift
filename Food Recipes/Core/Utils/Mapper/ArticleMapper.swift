@@ -41,11 +41,20 @@ final class ArticleMapper {
         }
     }
     
+    
     static func mapArticleByCategoryEntityToDomain(
         input categoryEntity: [ArticleCategoryEntity]
     ) -> [ArticleCategoryModel] {
         return categoryEntity.map{ result in
             return ArticleCategoryModel(title: result.title, thumb: result.thumbs, tags: result.tags, key: result.key)
+        }
+    }
+    
+    static func mapArticleByCategoryResponseToDomain(
+        input categoryResponse: [CategoryArticleResponse]
+    ) -> [ArticleCategoryModel] {
+        return categoryResponse.map{ result in
+            return ArticleCategoryModel(title: result.title ?? "", thumb: result.thumb ?? "", tags: result.tags ?? "", key: result.key ?? "")
         }
     }
     
@@ -71,4 +80,11 @@ final class ArticleMapper {
             date_published: detailEntity.date_published,
             description: detailEntity.articleDescription)
     }
+    
+    static func mapArticleDetailResponseToDoamin(
+        input detailResponse: ArticleDetailResponse
+    ) -> ArticleDetailModel {
+        return ArticleDetailModel(title: detailResponse.title ?? "", thumb: detailResponse.thumb ?? "", author: detailResponse.author ?? "", date_published: detailResponse.date_published ?? "", description: detailResponse.description ?? "")
+    }
+    
 }
