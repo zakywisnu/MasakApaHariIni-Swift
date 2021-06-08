@@ -12,6 +12,7 @@ import SwiftUI
 class SearchPresenter: ObservableObject{
     private var cancellables: Set<AnyCancellable> = []
     private let useCase: SearchUseCase
+    private let router = SearchRouter()
     
     @Published var search: [SearchModel] = []
     @Published var isError: Bool = false
@@ -41,5 +42,14 @@ class SearchPresenter: ObservableObject{
                 self.search = result
             })
             .store(in: &cancellables)
+    }
+    
+    func linkBuilder<Content: View>(
+        for searchs: SearchModel,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(destination: router.makeDetailView(for: searchs)) {
+            content()
+        }
     }
 }
