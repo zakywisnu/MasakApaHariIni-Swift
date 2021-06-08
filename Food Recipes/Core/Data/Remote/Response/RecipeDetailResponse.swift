@@ -18,7 +18,7 @@ struct RecipeDetailResponse: Codable {
         case thumb = "thumb"
         case servings = "servings"
         case times = "times"
-        case difficulty = "difficulty"
+        case difficulty = "dificulty"
         case author = "author"
 //        case needItem = "needItem"
         case ingredient = "ingredient"
