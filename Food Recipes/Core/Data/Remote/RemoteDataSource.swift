@@ -51,7 +51,6 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
                         switch response.result{
                         case .success(let value):
                             completion(.success(value.results))
-                            print("list", value.results)
                         case .failure:
                             completion(.failure(URLError.invalidResponse))
                         }
@@ -112,8 +111,16 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     }
     
     func getArticleDetail(tag: String, key: String) -> AnyPublisher<ArticleDetailResponse, Error> {
+        var newTag = ""
+        if tag == "Inspirasi Dapur" {
+            newTag = "inspirasi-dapur"
+        } else if tag == "Makanan & Gaya Hidup" {
+            newTag = "makanan-gaya-hidup"
+        } else {
+            newTag = "tips-masak"
+        }
         return Future<ArticleDetailResponse, Error> { completion in
-            if let url = URL(string: Endpoints.Gets.articleDetail(tag: tag, key: key).url){
+            if let url = URL(string: Endpoints.Gets.articleDetail(tag: newTag, key: key).url){
                 AF.request(url)
                     .validate()
                     .responseDecodable(of: ArticleDetailListResponse.self){ response in
