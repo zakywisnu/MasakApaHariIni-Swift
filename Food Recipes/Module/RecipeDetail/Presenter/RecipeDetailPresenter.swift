@@ -47,6 +47,7 @@ class RecipeDetailPresenter: ObservableObject{
                 }
             }, receiveValue: {result in
                 self.recipe = result
+                print("network", result)
             })
             .store(in: &cancellables)
     }
