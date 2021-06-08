@@ -10,9 +10,9 @@ import Combine
 
 protocol FoodRecipesRepositoryProtocol: AnyObject {
     func getRecipeCategory() -> AnyPublisher<[CategoryModel], Error>
+    func getArticleCategory() -> AnyPublisher<[ArticleModel],Error>
     func getRecipeByCategory(key: String) -> AnyPublisher<[RecipeCategoryModel], Error>
     func getRecipeDetail(key: String) -> AnyPublisher<RecipeDetailModel, Error>
-    func getArticleCategory() -> AnyPublisher<[ArticleModel],Error>
     func getArticleByCategory(key: String) -> AnyPublisher<[ArticleCategoryModel], Error>
     func getArticleDetail(tag: String, key: String) -> AnyPublisher<ArticleDetailModel,Error>
     func getSearchRecipe(query: String) -> AnyPublisher<[SearchModel], Error>
@@ -35,6 +35,31 @@ final class FoodRecipesRepository: NSObject {
 }
 
 extension FoodRecipesRepository: FoodRecipesRepositoryProtocol {
+    func getRecipeByCategory(key: String) -> AnyPublisher<[RecipeCategoryModel], Error> {
+        return self.remote.getRecipeCategory(key: key)
+            .map{ RecipeMapper.mapRecipeByCategoryResponseToDomain(input: $0)}
+            .eraseToAnyPublisher()
+    }
+    
+    func getRecipeDetail(key: String) -> AnyPublisher<RecipeDetailModel, Error> {
+        return self.remote.getRecipeDetail(key: key)
+            .map{ RecipeMapper.mapRecipeDetailResponseToDomain(input: $0)}
+            .eraseToAnyPublisher()
+    }
+    
+    func getArticleByCategory(key: String) -> AnyPublisher<[ArticleCategoryModel], Error> {
+        return self.remote.getArticleCategory(key: key)
+            .map{ ArticleMapper.mapArticleByCategoryResponseToDomain(input: $0)}
+            .eraseToAnyPublisher()
+    }
+    
+    func getArticleDetail(tag: String, key: String) -> AnyPublisher<ArticleDetailModel, Error> {
+        return self.remote.getArticleDetail(tag: tag, key: key)
+            .map{ ArticleMapper.mapArticleDetailResponseToDoamin(input: $0)}
+            .eraseToAnyPublisher()
+    }
+    
+    
     func getRecipeCategory() -> AnyPublisher<[CategoryModel], Error> {
         return self.local.getCategoryRecipe()
             .flatMap{ result -> AnyPublisher<[CategoryModel], Error> in
@@ -51,48 +76,6 @@ extension FoodRecipesRepository: FoodRecipesRepositoryProtocol {
                 } else {
                     return self.local.getCategoryRecipe()
                         .map{ RecipeMapper.mapRecipeCategoryEntityToDomain(input: $0)}
-                        .eraseToAnyPublisher()
-                }
-            }.eraseToAnyPublisher()
-    }
-    
-    func getRecipeByCategory(key: String) -> AnyPublisher<[RecipeCategoryModel], Error> {
-        return self.local.getRecipeByCategory(key: key)
-            .flatMap{ result -> AnyPublisher<[RecipeCategoryModel], Error> in
-                if result.isEmpty {
-                    return self.remote.getRecipeCategory(key: key)
-                        .map{ RecipeMapper.mapRecipeByCategoryResponseToEntity(input: $0)}
-                        .catch{ _ in self.local.getRecipeByCategory(key: key)}
-                        .flatMap{ self.local.addRecipeByCategory(from: $0)}
-                        .filter{$0}
-                        .flatMap{ _ in self.local.getRecipeByCategory(key: key)
-                            .map{RecipeMapper.mapRecipeByCategoryEntityToDomain(input: $0)}
-                        }
-                        .eraseToAnyPublisher()
-                } else {
-                    return self.local.getRecipeByCategory(key: key)
-                        .map{ RecipeMapper.mapRecipeByCategoryEntityToDomain(input: $0)}
-                        .eraseToAnyPublisher()
-                }
-            }.eraseToAnyPublisher()
-    }
-    
-    func getRecipeDetail(key: String) -> AnyPublisher<RecipeDetailModel, Error> {
-        return self.local.getRecipeDetail(key: key)
-            .flatMap{ result -> AnyPublisher<RecipeDetailModel, Error> in
-                if result.ingredients.isEmpty{
-                    return self.remote.getRecipeDetail(key: key)
-                        .map{ RecipeMapper.mapRecipeDetailResponseToEntity(input: $0)}
-                        .catch{ _ in self.local.getRecipeDetail(key: key)}
-                        .flatMap{ self.local.addRecipeDetail(from: $0)}
-                        .filter{$0}
-                        .flatMap{ _ in self.local.getRecipeDetail(key: key)
-                            .map{ RecipeMapper.mapRecipeDetailEntityToDomain(input: $0)}
-                        }
-                        .eraseToAnyPublisher()
-                } else {
-                    return self.local.getRecipeDetail(key: key)
-                        .map{ RecipeMapper.mapRecipeDetailEntityToDomain(input: $0)}
                         .eraseToAnyPublisher()
                 }
             }.eraseToAnyPublisher()
@@ -119,47 +102,91 @@ extension FoodRecipesRepository: FoodRecipesRepositoryProtocol {
             }.eraseToAnyPublisher()
     }
     
-    func getArticleByCategory(key: String) -> AnyPublisher<[ArticleCategoryModel], Error> {
-        return self.local.getArticleByCategory(key: key)
-            .flatMap{ result -> AnyPublisher<[ArticleCategoryModel], Error> in
-                if result.isEmpty {
-                    return self.remote.getArticleCategory(key: key)
-                        .map{ ArticleMapper.mapArticleByCategoryResponseToEntity(input: $0)}
-                        .catch{ _ in self.local.getArticleByCategory(key: key)}
-                        .flatMap{ self.local.addArticleByCategory(from: $0)}
-                        .filter{$0}
-                        .flatMap{ _ in self.local.getArticleByCategory(key: key)
-                            .map{ArticleMapper.mapArticleByCategoryEntityToDomain(input: $0)}
-                        }
-                        .eraseToAnyPublisher()
-                } else {
-                    return self.local.getArticleByCategory(key: key)
-                        .map{ArticleMapper.mapArticleByCategoryEntityToDomain(input: $0)}
-                        .eraseToAnyPublisher()
-                }
-            }.eraseToAnyPublisher()
-    }
-    
-    func getArticleDetail(tag: String, key: String) -> AnyPublisher<ArticleDetailModel, Error> {
-        return self.local.getArticleDetail(tag: tag, key: key)
-            .flatMap{ result -> AnyPublisher<ArticleDetailModel, Error> in
-                if result.title.isEmpty {
-                    return self.remote.getArticleDetail(tag: tag, key: key)
-                        .map { ArticleMapper.mapArticleDetailResponseToEntity(input: $0)}
-                        .catch { _ in self.local.getArticleDetail(tag: tag, key: key)}
-                        .flatMap{ self.local.addArticleDetail(from: $0)}
-                        .filter{$0}
-                        .flatMap{ _ in self.local.getArticleDetail(tag: tag, key: key)
-                            .map{ArticleMapper.mapArticleDetailEntityToDomain(input: $0)}
-                        }
-                        .eraseToAnyPublisher()
-                } else {
-                    return self.local.getArticleDetail(tag: tag, key: key)
-                        .map{ArticleMapper.mapArticleDetailEntityToDomain(input: $0)}
-                        .eraseToAnyPublisher()
-                }
-            }.eraseToAnyPublisher()
-    }
+//    func getRecipeByCategory(key: String) -> AnyPublisher<[RecipeCategoryModel], Error> {
+//        return self.local.getRecipeByCategory(key: key)
+//            .flatMap{ result -> AnyPublisher<[RecipeCategoryModel], Error> in
+//                if result.isEmpty {
+//                    return self.remote.getRecipeCategory(key: key)
+//                        .map{ RecipeMapper.mapRecipeByCategoryResponseToEntity(input: $0)}
+//                        .catch{ _ in self.local.getRecipeByCategory(key: key)}
+//                        .flatMap{ self.local.addRecipeByCategory(from: $0)}
+//                        .filter{$0}
+//                        .flatMap{ _ in self.local.getRecipeByCategory(key: key)
+//                            .map{RecipeMapper.mapRecipeByCategoryEntityToDomain(input: $0)}
+//                        }
+//                        .eraseToAnyPublisher()
+//                } else {
+//                    return self.local.getRecipeByCategory(key: key)
+//                        .map{ RecipeMapper.mapRecipeByCategoryEntityToDomain(input: $0)}
+//                        .eraseToAnyPublisher()
+//                }
+//            }.eraseToAnyPublisher()
+//    }
+//
+//    func getRecipeDetail(key: String) -> AnyPublisher<RecipeDetailModel, Error> {
+//        return self.local.getRecipeDetail(key: key)
+//            .flatMap{ result -> AnyPublisher<RecipeDetailModel, Error> in
+//                if result.ingredients.isEmpty{
+//                    return self.remote.getRecipeDetail(key: key)
+//                        .map{ RecipeMapper.mapRecipeDetailResponseToEntity(input: $0)}
+//                        .catch{ _ in self.local.getRecipeDetail(key: key)}
+//                        .flatMap{ self.local.addRecipeDetail(from: $0)}
+//                        .filter{$0}
+//                        .flatMap{ _ in self.local.getRecipeDetail(key: key)
+//                            .map{ RecipeMapper.mapRecipeDetailEntityToDomain(input: $0)}
+//                        }
+//                        .eraseToAnyPublisher()
+//                } else {
+//                    return self.local.getRecipeDetail(key: key)
+//                        .map{ RecipeMapper.mapRecipeDetailEntityToDomain(input: $0)}
+//                        .eraseToAnyPublisher()
+//                }
+//            }.eraseToAnyPublisher()
+//    }
+//
+//
+//
+//    func getArticleByCategory(key: String) -> AnyPublisher<[ArticleCategoryModel], Error> {
+//        return self.local.getArticleByCategory(key: key)
+//            .flatMap{ result -> AnyPublisher<[ArticleCategoryModel], Error> in
+//                if result.isEmpty {
+//                    return self.remote.getArticleCategory(key: key)
+//                        .map{ ArticleMapper.mapArticleByCategoryResponseToEntity(input: $0)}
+//                        .catch{ _ in self.local.getArticleByCategory(key: key)}
+//                        .flatMap{ self.local.addArticleByCategory(from: $0)}
+//                        .filter{$0}
+//                        .flatMap{ _ in self.local.getArticleByCategory(key: key)
+//                            .map{ArticleMapper.mapArticleByCategoryEntityToDomain(input: $0)}
+//                        }
+//                        .eraseToAnyPublisher()
+//                } else {
+//                    return self.local.getArticleByCategory(key: key)
+//                        .map{ArticleMapper.mapArticleByCategoryEntityToDomain(input: $0)}
+//                        .eraseToAnyPublisher()
+//                }
+//            }.eraseToAnyPublisher()
+//    }
+//
+//    func getArticleDetail(tag: String, key: String) -> AnyPublisher<ArticleDetailModel, Error> {
+//        return self.local.getArticleDetail(tag: tag, key: key)
+//            .flatMap{ result -> AnyPublisher<ArticleDetailModel, Error> in
+//                if result.title.isEmpty {
+//                    return self.remote.getArticleDetail(tag: tag, key: key)
+//                        .map { ArticleMapper.mapArticleDetailResponseToEntity(input: $0)}
+//                        .catch { _ in self.local.getArticleDetail(tag: tag, key: key)}
+//                        .flatMap{ self.local.addArticleDetail(from: $0)}
+//                        .filter{$0}
+//                        .flatMap{ _ in self.local.getArticleDetail(tag: tag, key: key)
+//                            .map{ArticleMapper.mapArticleDetailEntityToDomain(input: $0)}
+//                        }
+//                        .eraseToAnyPublisher()
+//                } else {
+//                    return self.local.getArticleDetail(tag: tag, key: key)
+//                        .map{ArticleMapper.mapArticleDetailEntityToDomain(input: $0)}
+//                        .eraseToAnyPublisher()
+//                }
+//            }.eraseToAnyPublisher()
+//    }
     
     func getSearchRecipe(query: String) -> AnyPublisher<[SearchModel], Error> {
         return self.remote.searchRecipes(query: query)
