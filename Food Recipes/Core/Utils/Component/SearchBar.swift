@@ -7,14 +7,50 @@
 
 import SwiftUI
 
-struct SearchBar: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct SearchBar: UIViewRepresentable {
 
-struct SearchBar_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBar()
+  @Binding var text: String
+  var onSearchButtonClicked: (() -> Void)?
+
+  class Coordinator: NSObject, UISearchBarDelegate {
+
+    let control: SearchBar
+
+    init(_ control: SearchBar) {
+      self.control = control
     }
+
+    func searchBar(
+      _ searchBar: UISearchBar,
+      textDidChange searchText: String
+    ) {
+      control.text = searchText
+    }
+
+    func searchBarSearchButtonClicked(
+      _ searchBar: UISearchBar
+    ) {
+      control.onSearchButtonClicked?()
+    }
+  }
+
+  func makeCoordinator() -> Coordinator {
+    return Coordinator(self)
+  }
+
+  func makeUIView(
+    context: UIViewRepresentableContext<SearchBar>
+  ) -> UISearchBar {
+    let searchBar = UISearchBar(frame: .zero)
+    searchBar.delegate = context.coordinator
+    return searchBar
+  }
+
+  func updateUIView(
+    _ uiView: UISearchBar,
+    context: UIViewRepresentableContext<SearchBar>
+  ) {
+    uiView.text = text
+  }
+
 }

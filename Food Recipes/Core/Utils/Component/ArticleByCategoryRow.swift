@@ -18,16 +18,20 @@ struct ArticleByCategoryRow: View {
                     .indicator(.activity)
                     .transition(.fade(duration: 0.5))
                     .frame(width: 150, height: 100)
-                    .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                Spacer()
                 Text(article.title)
                     .font(.caption)
                     .padding()
+                    .foregroundColor(.black)
+                Spacer()
             }
         }
+        .frame(width: UIScreen.main.bounds.width - 32)
         .padding(4)
-        .background(Color.blue.opacity(0.3))
+        .background(Color.black.opacity(0.1))
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        
     }
 }
 

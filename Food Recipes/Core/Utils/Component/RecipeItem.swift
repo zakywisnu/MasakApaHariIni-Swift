@@ -17,10 +17,10 @@ struct RecipeItem: View {
             Image(systemName: image)
                 .foregroundColor(.green)
                 .padding(.bottom, 8)
-                .font(.title)
+                .font(.headline)
             
             Text(name)
-                .font(.system(size: 12, weight: .bold, design: .default))
+                .font(.system(size: 10, weight: .bold, design: .default))
                 .padding(.bottom, 16)
                 .foregroundColor(.black)
                 .frame(width: 50)

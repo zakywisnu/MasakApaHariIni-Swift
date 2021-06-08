@@ -11,10 +11,17 @@ import SDWebImageSwiftUI
 struct RecipeByCategoryRow: View {
     var recipeCategory: RecipeCategoryModel
     var body: some View {
-        VStack(spacing: 0){
+        VStack(alignment: .leading,spacing: 0){
             WebImage(url: URL(string: recipeCategory.thumb))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+            
+            Text(recipeCategory.title)
+                .font(.footnote)
+                .padding(.horizontal, 16)
+                .padding(.top, 10)
+                .foregroundColor(.black)
+                
             HStack{
                 Spacer()
                 RecipeItem(image: "timer", name: recipeCategory.times)
@@ -25,8 +32,8 @@ struct RecipeByCategoryRow: View {
                 Spacer()
             }
             .padding(.top, 8)
-            .background(Color.black.opacity(0.05))
         }
+        .background(Color.black.opacity(0.05))
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .frame(maxWidth: UIScreen.main.bounds.width - 32)
     }
