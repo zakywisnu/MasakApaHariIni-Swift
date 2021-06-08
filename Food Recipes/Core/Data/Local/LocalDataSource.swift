@@ -118,7 +118,6 @@ extension LocalDataSource: LocalDataSourceProtocol {
                 
                 let details: Results<RecipeDetailEntity> = {
                     realm.objects(RecipeDetailEntity.self)
-                        .filter("key = \(key)")
                 }()
                 
                 guard let detail = details.first else {
@@ -187,7 +186,6 @@ extension LocalDataSource: LocalDataSourceProtocol {
             if let realm = self.realm {
                 let article: Results<ArticleCategoryEntity> = {
                     realm.objects(ArticleCategoryEntity.self)
-                        .filter("key = \(key)")
                         .sorted(byKeyPath: "title", ascending: true)
                 }()
                 completion(.success(article.toArray(ofType: ArticleCategoryEntity.self)))
