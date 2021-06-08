@@ -23,13 +23,12 @@ struct RecipeByCategoryView: View {
             }
         }
         .onAppear{
-//            if self.presenter.categories.count == 0 {
+            if self.presenter.categories.count == 0 {
                 self.presenter.getRecipeByCategory()
-            
+            }
         }
         .navigationBarTitle(
-            "Recipes By Category",
-            displayMode: .automatic
+            "Recipes"
         )
     }
 }
