@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "07AABB02-B2F1-48C6-95AB-B9464F6A13BC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4A143038-6881-46AC-812C-FACB72DFF5A7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
@@ -88,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ECA615B9-8616-449D-9504-BA7CEB1446AD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
@@ -104,7 +104,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "80ACB684-7F92-4B84-971C-A894FF18EE81"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
@@ -113,6 +113,358 @@
             startingLineNumber = "53"
             endingLineNumber = "53"
             landmarkName = "getRecipeCategory(key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D460BD61-FABF-4FBE-9EB3-1B4DF4127EDE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "getRecipeDetail(key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "226C9EF1-238B-4ADC-A664-FE66021C2ABB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "getRecipeDetail(key:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "226C9EF1-238B-4ADC-A664-FE66021C2ABB - 6c8e145dab33b770"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Food_Recipes.RecipeDetailResponse, Swift.Error&gt;) -&gt; ()) -&gt; () in Food_Recipes.RemoteDataSource.getRecipeDetail(key: Swift.String) -&gt; Combine.AnyPublisher&lt;Food_Recipes.RecipeDetailResponse, Swift.Error&gt;"
+                  moduleName = "Food Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmadzaky/Documents/Zaky/MyWork/iOS/Personal/Latihan/FoodRecipes/Food%20Recipes/Food%20Recipes/Core/Data/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "954">
+               </Location>
+               <Location
+                  uuid = "226C9EF1-238B-4ADC-A664-FE66021C2ABB - 8f30bf2d1e785c16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Food_Recipes.RecipeDetailListResponse, Alamofire.AFError&gt;) -&gt; () in closure #1 ((Swift.Result&lt;Food_Recipes.RecipeDetailResponse, Swift.Error&gt;) -&gt; ()) -&gt; () in Food_Recipes.RemoteDataSource.getRecipeDetail(key: Swift.String) -&gt; Combine.AnyPublisher&lt;Food_Recipes.RecipeDetailResponse, Swift.Error&gt;"
+                  moduleName = "Food Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmadzaky/Documents/Zaky/MyWork/iOS/Personal/Latihan/FoodRecipes/Food%20Recipes/Food%20Recipes/Core/Data/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "203">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6722A232-2057-4A50-AB3A-738963EF160B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "getRecipeDetail(key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A3FCE2A-231C-4C4F-BEF7-4F1317DA4A4B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "getRecipeDetail(key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF17BEF8-8327-45D4-83D2-661C53DE666F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/FoodRecipesRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "FoodRecipesRepository"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E3FFB63-A427-4F5C-9597-6D74197E9AB9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/FoodRecipesRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "FoodRecipesRepository"
+            landmarkType = "21">
+            <Locations>
+               <Location
+                  uuid = "0E3FFB63-A427-4F5C-9597-6D74197E9AB9 - f52b6d7624b3f8e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Food_Recipes.RecipeDetailEntity) -&gt; Combine.AnyPublisher&lt;Food_Recipes.RecipeDetailModel, Swift.Error&gt; in Food_Recipes.FoodRecipesRepository.getRecipeDetail(key: Swift.String) -&gt; Combine.AnyPublisher&lt;Food_Recipes.RecipeDetailModel, Swift.Error&gt;"
+                  moduleName = "Food Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmadzaky/Documents/Zaky/MyWork/iOS/Personal/Latihan/FoodRecipes/Food%20Recipes/Food%20Recipes/Core/Data/FoodRecipesRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "691">
+               </Location>
+               <Location
+                  uuid = "0E3FFB63-A427-4F5C-9597-6D74197E9AB9 - a57b35f3b45ca771"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Food_Recipes.RecipeDetailResponse) -&gt; Food_Recipes.RecipeDetailEntity in closure #1 (Food_Recipes.RecipeDetailEntity) -&gt; Combine.AnyPublisher&lt;Food_Recipes.RecipeDetailModel, Swift.Error&gt; in Food_Recipes.FoodRecipesRepository.getRecipeDetail(key: Swift.String) -&gt; Combine.AnyPublisher&lt;Food_Recipes.RecipeDetailModel, Swift.Error&gt;"
+                  moduleName = "Food Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmadzaky/Documents/Zaky/MyWork/iOS/Personal/Latihan/FoodRecipes/Food%20Recipes/Food%20Recipes/Core/Data/FoodRecipesRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00D6F135-2803-4CCD-9488-489429812C34"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/FoodRecipesRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "FoodRecipesRepository"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21F1A983-2A3E-4664-BD80-200DDB2FDCBB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Module/RecipeDetail/Presenter/RecipeDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getDetailRecipe()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71860E8C-8ADD-4AF3-A61C-87154117F102"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getRecipeDetail(key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC3B4CF1-1482-4D08-AA3D-9AB86894B703"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "getArticleDetail(tag:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40DFBF53-AFA4-4882-A372-8DF3F5077821"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "getArticleDetail(tag:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92B4A9BB-7BD5-4726-AF17-0B53E91B2891"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "getArticleDetail(tag:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "348412B6-A99F-47FA-8973-59559E553AA5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "getArticleDetail(tag:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED89A774-64C0-4DF3-B708-ABEDB02F7A59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "getArticleDetail(tag:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD93A963-4999-4834-AAB1-E77825640B19"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "getArticleDetail(tag:key:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FD93A963-4999-4834-AAB1-E77825640B19 - 4d552eb282761ca8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[1] = Value Promoted from Box&gt; of closure #1 ((Swift.Result&lt;Food_Recipes.ArticleDetailResponse, Swift.Error&gt;) -&gt; ()) -&gt; () in Food_Recipes.RemoteDataSource.getArticleDetail(tag: Swift.String, key: Swift.String) -&gt; Combine.AnyPublisher&lt;Food_Recipes.ArticleDetailResponse, Swift.Error&gt;"
+                  moduleName = "Food Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmadzaky/Documents/Zaky/MyWork/iOS/Personal/Latihan/FoodRecipes/Food%20Recipes/Food%20Recipes/Core/Data/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "1020">
+               </Location>
+               <Location
+                  uuid = "FD93A963-4999-4834-AAB1-E77825640B19 - 54239f23f95283d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Food_Recipes.ArticleDetailListResponse, Alamofire.AFError&gt;) -&gt; () in closure #1 ((Swift.Result&lt;Food_Recipes.ArticleDetailResponse, Swift.Error&gt;) -&gt; ()) -&gt; () in Food_Recipes.RemoteDataSource.getArticleDetail(tag: Swift.String, key: Swift.String) -&gt; Combine.AnyPublisher&lt;Food_Recipes.ArticleDetailResponse, Swift.Error&gt;"
+                  moduleName = "Food Recipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmadzaky/Documents/Zaky/MyWork/iOS/Personal/Latihan/FoodRecipes/Food%20Recipes/Food%20Recipes/Core/Data/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "182">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB7ED254-3762-4E1E-9FD4-67569ECAB7DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food Recipes/Core/Data/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "getArticleDetail(tag:key:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
